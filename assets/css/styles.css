@@ -38,7 +38,6 @@ form {
     font-size: 1.5rem;
     color: #377bf0;
     font-weight: bold;
-    align-self: center;
   }
 
   input {
@@ -86,13 +85,13 @@ form {
 
 section {
   background-color: #bfeded;
-  overflow-x: auto; /* permite rolar horizontalmente se o conteúdo não couber */
-
-  .header-estante {
-    background-color: #2dc3c3;
-    padding: 5px;
-  }
 }
+
+.header-estante {
+  background-color: #2dc3c3;
+  padding: 5px;
+}
+
 .columns {
   font-size: 1.2rem;
   font-weight: bold;
@@ -108,29 +107,27 @@ section {
   width: 100%;
   display: flex;
   align-items: center;
-  min-width: 480px; /* mantém alinhado com o cabeçalho */
 }
 
 .col-nome {
-  display: flex;
   width: 40%;
   font-size: 1.2rem;
   padding-top: 10px;
+  padding-left: 20px;
   overflow: hidden; /* Se o nome for gigante, ele não quebra o layout */
   white-space: nowrap;
-  text-align: left;
-  padding-left: 20px;
+  text-overflow: ellipsis;
 }
 
 .col-lido,
 .col-avaliacao {
-  width: 20%;
+  width: 15%;
   display: flex;
   justify-content: center;
 }
 
 .col-avaliacao {
-  width: 30%;
+  width: 35%;
   display: flex;
   justify-content: center;
 }
@@ -145,6 +142,8 @@ section {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   border: 2px solid #c7c7c7;
   border-radius: 6px;
   background-color: #effbfc;
@@ -193,14 +192,13 @@ section {
 }
 
 .star {
-  font-size: 25px;
-  color: #b1c1c1;
-  transition: color 0.2s;
   font-size: clamp(
     18px,
     4vw,
     25px
   ); /* estrelas menores em telas muito pequenas */
+  color: #b1c1c1;
+  transition: color 0.2s;
 }
 
 /* Quando passa o mouse, a estrela e as próximas (que visualmente são as anteriores) ficam amarelas */
@@ -218,25 +216,25 @@ section {
 @media (max-width: 600px) {
   h1 {
     font-size: 2rem;
-    padding-right: 90px; /* evita sobrepor a logo */
   }
 
   .logo {
     width: 70px;
-    right: 8px;
-    top: 12px;
   }
 
   form {
     margin: 1rem 0.75rem 1.5rem 0.75rem;
     flex-direction: column;
+    align-items: stretch;
 
     input {
-      width: 90%;
+      width: 100%;
+      margin-left: 0;
     }
 
     button {
       width: 90%;
+      margin-left: 0;
       height: 32px;
     }
   }
@@ -251,7 +249,8 @@ section {
     flex-direction: column;
     align-items: flex-start;
     padding: 12px 16px;
-    gap: 8px;
+    gap: 10px;
+    min-width: unset;
   }
 
   /* todas as colunas viram 100% de largura dentro do card */
@@ -262,29 +261,13 @@ section {
     width: 100%;
     padding: 0;
     justify-content: flex-start;
-    white-space: normal; /* nome pode quebrar linha no card */
+    white-space: normal;
     font-size: 1rem;
   }
 
-  /* adiciona label antes de cada campo usando ::before */
-  .col-lido::before {
-    content: 'Lido: ';
+  .col-nome {
     font-weight: bold;
-    margin-right: 6px;
-    color: #377bf0;
-  }
-
-  .col-avaliacao::before {
-    content: 'Avaliação: ';
-    font-weight: bold;
-    margin-right: 6px;
-    color: #377bf0;
-    align-self: center;
-  }
-
-  .col-avaliacao {
-    display: flex;
-    align-items: center;
+    font-size: 1.05rem;
   }
 
   .col-lido {
@@ -292,9 +275,28 @@ section {
     align-items: center;
   }
 
+  .col-lido::before {
+    content: 'Lido: ';
+    font-weight: bold;
+    margin-right: 8px;
+    color: #377bf0;
+  }
+
+  .col-avaliacao {
+    display: flex;
+    align-items: center;
+  }
+
+  .col-avaliacao::before {
+    content: 'Avaliação: ';
+    font-weight: bold;
+    margin-right: 8px;
+    color: #377bf0;
+  }
+
   .remove-button {
     width: 100%;
-    height: 36px; /* área de toque maior */
+    height: 36px;
   }
 
   .popup-warn {
