@@ -36,6 +36,10 @@ O resultado é uma aplicação onde é possível adicionar livros, marcar como l
 - Interface temática inspirada em e-readers
 
 ---
+## 🚧 Ainda precisa ser feito
+- [ ] Tornar o site responsivo para celulares
+
+---
 
 ## 📌 Observações
 
