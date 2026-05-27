@@ -1,0 +1,201 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #cee5f0;
+}
+
+h1 {
+  padding: 1rem;
+  color: #545bf0;
+}
+
+.header-container {
+  height: 70px;
+  display: flex;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  right: 70px;
+  top: 20px;
+  width: 120px;
+  height: auto;
+  z-index: 10;
+}
+
+form {
+  margin: 1.5rem 0 2rem 2rem;
+  font-size: 1.5rem;
+  display: flex;
+
+  label {
+    font-size: 1.5rem;
+    color: #377bf0;
+    font-weight: bold;
+  }
+
+  input {
+    background-color: #ffffff;
+    font-size: 1rem;
+    height: 2rem;
+    width: 17rem;
+    margin-left: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #377bf0;
+    background-color: #ffffff;
+    width: 8rem;
+    margin-left: 1rem;
+    border-radius: 10%;
+  }
+}
+
+.popup-warn {
+  position: fixed;
+  top: 20px;
+  right: -300px;
+  background-color: #28a745;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  z-index: 9999;
+  transition: all 1s ease;
+  pointer-events: none; /* Evita que ele atrapalhe cliques enquanto está invisível */
+}
+
+.popup-warn.show {
+  right: 20px;
+  pointer-events: auto; /* Volta a ser clicável */
+}
+
+section {
+  background-color: #bfeded;
+  .header-estante {
+    background-color: #2dc3c3;
+    padding: 5px;
+  }
+}
+.columns {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#booksList li {
+  padding: 10px 0;
+  border-bottom: 1px solid #b3c7d1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.col-nome {
+  display: flex;
+  width: 40%;
+  font-size: 1.2rem;
+  padding-top: 10px;
+  overflow: hidden; /* Se o nome for gigante, ele não quebra o layout */
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.col-lido,
+.col-avaliacao {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.col-avaliacao {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.col-acoes {
+  width: 10%;
+  display: flex;
+}
+
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c7c7c7;
+  border-radius: 6px;
+  background-color: #effbfc;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkbox:checked {
+  background-color: #2ecc71;
+  border-color: #27ae60;
+}
+
+.checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.remove-button {
+  font-size: 13px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #f75a5a;
+}
+
+.estrelas {
+  display: flex;
+  flex-direction: row-reverse; /* Inverte para o hover funcionar da esquerda pra direita */
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.star {
+  font-size: 25px;
+  color: #b1c1c1;
+  transition: color 0.2s;
+}
+
+/* Quando passa o mouse, a estrela e as próximas (que visualmente são as anteriores) ficam amarelas */
+.star:hover,
+.star:hover ~ .star {
+  color: #ddb00e;
+}
+
+/* Classe para manter a cor da nota que já foi salva no banco/objeto */
+.star.ativa,
+.star.ativa ~ .star {
+  color: #ddb00e;
+}

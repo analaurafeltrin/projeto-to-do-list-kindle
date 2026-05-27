@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO-LIST</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image" href="assets/ebook.png" />
+  </head>
+  <body>
+    <header class="header-container">
+      <h1>To Do List: <i>Versão Kindle</i></h1>
+      <img src="assets/books.png" class="logo" />
+    </header>
+    <form>
+      <label for="book">Livro:</label>
+      <input
+        id="book"
+        type="text"
+        placeholder="Qual livro gostaria de adicionar?"
+      />
+      <button onclick="popup(event)">Adicionar</button>
+    </form>
+    <section>
+      <div class="header-estante">
+        <h2>Minha estante virtual</h2>
+      </div>
+      <div class="columns">
+        <div class="col-nome">Livro</div>
+        <div class="col-lido">Lido</div>
+        <div class="col-avaliacao">Avaliação</div>
+        <div class="col-acoes">Ações</div>
+      </div>
+      <ul id="booksList"></ul>
+    </section>
+    <script src="toDoList.js"></script>
+  </body>
+</html>
