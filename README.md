@@ -37,7 +37,7 @@ O resultado é uma aplicação onde é possível adicionar livros, marcar como l
 
 ---
 ## 🚧 Ainda precisa ser feito
-- [ ] Tornar o site responsivo para celulares
+- [X] Tornar o site responsivo para celulares
 
 ---
 
